@@ -21,9 +21,32 @@
     <![endif]-->
   </head>
   <body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" id="new-post">New Post</a></li>
+        <li><a href="#" id="signup">Signup</a></li>
+        <li><a href="#" id="signin">Signin</a></li>
+        <li><a href="#" id="signout">Signout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
     <div class="container">
       <h1>Chirps</h1>
-      <a href="#" class="btn btn-large btn-primary" id="new-post">Get chirpy</a>
       <div id="stuff"></div>
     </div>
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
@@ -45,12 +68,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.12.5/js/jquery.fileupload.min.js"></script>
     <script src="handlebars-v4.0.5.js"></script>
     <script src="main.js"></script>
     <script id="post-form" type="text/x-handlebars-template">
       <form id="chirp-form">
         <textarea id="chirp-body" name="body" placeholder="What's happening?"></textarea>
+        <input type="file" name="photo" id="chirp-photo" />
         <button type="submit" class="btn btn-large btn-primary">Chirp It!</button>
+      </form>
+    </script>
+    <script id="login-form" type="text/x-handlebars-template">
+      <form id="login-user-form">
+        <p>
+          <input type="text" id="user-email" name="email" placeholder="Email"/>
+        </p>
+        <p>
+          <input type="password" id="user-password" name="password" placeholder="Password"/>
+        </p>
+        <button type="submit" class="btn btn-large btn-primary">Get Chirpin'!</button>
       </form>
     </script>
     <script id="chirp-display" type="text/x-handlebars-template">
